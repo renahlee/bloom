@@ -16,7 +16,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 const int PIRpin = 2;           // PIR input pin
 uint8_t pirState = LOW;
 
-int delayval = 1000; // delay for half a second
+int delayval = 1000;
 
 void setup() {
 #if defined (__AVR_ATtiny85__)
@@ -75,7 +75,7 @@ void rainbow(uint8_t wait) {
 void rainbowCycle(uint8_t wait) {
   uint16_t i, j;
 
-  for (j = 0; j < 256 * 5; j++) {                           // 5 cycles of all colors on wheel
+  for (j = 0; j < 256 * 5; j++) {
     for (i = 0; i < NUMPIXELS; i++) {
       pixels.setPixelColor(i, Wheel(((i * 256 / NUMPIXELS) + j) & 255));
     }
